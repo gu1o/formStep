@@ -32,23 +32,75 @@ firstForm.addEventListener("submit", (e) => e.preventDefault());
 secondForm.addEventListener("submit", (e) => e.preventDefault());
 
 
+// mask telefone
+function mascara(o, f) {
+    v_obj = o;
+    v_fun = f;
+    setTimeout(execmascara, 1);
+}
+
+function execmascara() {
+    v_obj.value = v_fun(v_obj.value);
+}
+
+function mtel(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+    return v;
+}
+
+window.onload = function() {
+    var telefones = document.querySelectorAll('input[type="tel"]');
+    telefones.forEach(function(telefone) {
+        telefone.onkeyup = function() {
+            mascara(this, mtel);
+        };
+    });
+}
+
+
+// mask CNPJ
+function addCNPJMask() {
+    const cnpjInput = document.getElementById('CNPJ');
+    cnpjInput.addEventListener('input', function (e) {
+        setTimeout(() => {
+            const oldValue = e.target.value;
+            var newValue = oldValue.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+            var formattedValue = !newValue[2] ? newValue[1] : newValue[1] + '.' + newValue[2] + '.' + newValue[3] + '/' + newValue[4] + (newValue[5] ? '-' + newValue[5] : '');
+
+            if (oldValue !== formattedValue) {
+                e.target.value = formattedValue;
+            }
+        }, 10);
+    });
+}
+
 // adiciona eventos de clique aos radios para mostrar ou esconder os campos adicionais
 [userType1, userType2, userType3].forEach(radio => {
     radio.addEventListener("click", () => {
         if (userType2.checked || userType3.checked) {
-            hiddenInput.type = "number";
+            hiddenInput.type = "text";
+            hiddenInput.id = "CNPJ"
             hiddenInput.placeholder = "CNPJ";
             hiddenInput.style.display = 'block';
-            actionButton.textContent = "Next";
+            hiddenInput.required = true
+            actionButton.textContent = "Continuar";
             actionButton.dataset.step = "1";
+
+            //chamada da mask de cnpj
+            addCNPJMask();
         } else {
             hiddenInput.type = "hidden";
             hiddenInput.style.display = 'none';
-            actionButton.textContent = "Sign Up";
+            actionButton.textContent = "Cadastrar-se";
             actionButton.dataset.step = "0";
         }
     });
 });
+
+
+
 
 // lógica para avançar entre os passos do formulário
 actionButton.addEventListener("click", function(e) {
@@ -57,12 +109,12 @@ actionButton.addEventListener("click", function(e) {
     if (step === "1" && (userType2.checked || userType3.checked)) {
         firstForm.style.display = 'none';
         formStep2.style.display = 'block';
-        actionButton.textContent = "Sign Up";
+        actionButton.textContent = "Cadastrar-se";
         actionButton.dataset.step = "2";
     } else if (step === "2") {
         formStep2.style.display = 'none';
         firstForm.style.display = 'block';
-        actionButton.textContent = "Next";
+        actionButton.textContent = "Continuar";
         actionButton.dataset.step = "1";
     }
 });
@@ -71,7 +123,7 @@ actionButton.addEventListener("click", function(e) {
 backButton.addEventListener("click", function() {
     formStep2.style.display = 'none';
     firstForm.style.display = 'flex';
-    actionButton.textContent = userType2.checked || userType3.checked ? "Next" : "Sign Up";
+    actionButton.textContent = userType2.checked || userType3.checked ? "Continuar" : "Cadastrar-se";
     actionButton.dataset.step = userType2.checked || userType3.checked ? "1" : "0";
 });
 

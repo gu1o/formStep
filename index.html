@@ -14,25 +14,26 @@
         <!-- Sign Up -->
         <div class="container__form container--signup">
             <form action="#" class="form" id="form1">
-                <h2 class="form__title">Sign Up</h2>
+                <h1>Faça parte do Soluções Industriais</h1>
+                <h2 class="form__title">Crie sua conta</h2>
                 <div class="signUpType">
                     <input type="radio" name="userType" id="useyType1" value="Comprador">Comprador
                     <input type="radio" name="userType" id="useyType2" value="Fornecedor">Fornecedor
                     <input type="radio" name="userType" id="useyType3" value="Ambos">Ambos<br>
                 </div>
-                <input type="text" placeholder="User" class="input" />
-                <input type="email" placeholder="Email" class="input" />
-                <input type="number" placeholder="Telefone" class="input" />
-                <input id="hidden" type="hidden" class="input" />
-                <button class="btn">Sign Up</button>
+                <input type="text" placeholder="Nome" class="input" required/>
+                <input type="tel" placeholder="Telefone" class="input" maxlength="15" required/>
+                <input type="email" placeholder="E-mail" class="input" required/>
+                <input id="hidden" type="hidden" class="input"/>
+                <button class="btn">Cadastrar-se</button>
             </form>
 
 
-            <!--! ________________________ segundo passo do cadastro ____________________________________ !-->
+    <!--! __________________________ segundo passo do cadastro _______________________________ !-->
 
             <div class="form-step" id="form-step-2" style="display:none;">
                 <form action="#" class="form">
-                    <h2 class="form__title">Sign Up</h2>
+                    <h2 class="form__title">Preencha os dados da sua Empresa</h2>
                     <input type="text" placeholder="Nome Fantasia" class="input" />
                     <label>First Select</label>
                     <select name="First Select" id="segmento">
@@ -48,16 +49,16 @@
                     </select>
                     <div class="buttonsForm">
                         <button type="button" class="btn btn-back">Voltar</button>
-                        <button type="submit" class="btn btn-next">Next</button>
+                        <button type="submit" class="btn btn-next">Continuar</button>
                     </div>
                 </form>
             </div>
 
-            <!--! ________________________ terceiro passo do cadastro ____________________________________ !-->
+    <!--! _________________________ terceiro passo do cadastro _____________________________ !-->
 
             <div class="form-step" id="form-step-3" style="display:none;">
                 <form action="#" class="form">
-                    <h2 class="form__title">Sign Up</h2>
+                    <h2 class="form__title">Preencha seus dados de Contato</h2>
                     <div class="form-content">
                         <input type="url" placeholder="Site da Empresa" class="input" />
                         <div id="phone-number-fields">
@@ -70,8 +71,8 @@
                         <input type="text" placeholder="Estados que deseja atender" class="input" />
                     </div>
                     <div class="buttonsForm">
-                        <button type="button" class="btn btn-back">Back</button>
-                        <button type="submit" class="btn btn-next">Sign UP</button>
+                        <button type="button" class="btn btn-back">Voltar</button>
+                        <button type="submit" class="btn btn-next">Criar Cadastro</button>
                     </div>
                 </form>
             </div>
@@ -85,11 +86,11 @@
         <!-- Sign In -->
         <div class="container__form container--signin">
             <form action="#" class="form" id="form2">
-                <h2 class="form__title">Sign In</h2>
+                <h2 class="form__title">Login</h2>
                 <input type="email" placeholder="Email" class="input" />
                 <input type="password" placeholder="Password" class="input" />
-                <a href="#" class="link">Forgot your password?</a>
-                <button class="btn">Sign In</button>
+                <a href="#" class="link">Esqueceu a Senha?</a>
+                <button class="btn">Entrar</button>
             </form>
         </div>
 
@@ -97,10 +98,10 @@
         <div class="container__overlay">
             <div class="overlay">
                 <div class="overlay__panel overlay--left">
-                    <button class="btn" id="signIn">Sign In</button>
+                    <button class="btn" id="signIn">Login</button>
                 </div>
                 <div class="overlay__panel overlay--right">
-                    <button class="btn" id="signUp">Sign Up</button>
+                    <button class="btn" id="signUp">Cadastrar-se</button>
                 </div>
             </div>
         </div>

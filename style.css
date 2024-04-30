@@ -7,7 +7,7 @@
 	/* COLORS */
 	--white: #e9e9e9;
 	--gray: #333;
-	--blue: #0367a6;
+	--blue: #100CE0;
 	--lightblue: #008997;
 
 	/* RADII */
@@ -25,7 +25,7 @@
 body {
 	align-items: center;
 	background-color: var(--white);
-	background: url("img.jpg");
+	background: url("industria.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -34,6 +34,22 @@ body {
 	height: 100vh;
 	place-items: center;
 	overflow: hidden;
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(180deg, rgb(9 42 127 / 87%) -21.89%, rgba(13, 56, 116, 0.52) 100%);
+	height: 150vh;
+  }
+
+h1 {
+	font-size: 1.55em;
+	text-align: center;
 }
 
 .form__title {
@@ -149,7 +165,7 @@ body {
 
 .overlay {
 	background-color: var(--lightblue);
-	background: url("img.jpg");
+	background: url("industria.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -199,8 +215,7 @@ body {
 
 .btn {
 	background-color: var(--blue);
-	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
-	border-radius: 20px;
+	border-radius: 10px;
 	border: 1px solid var(--blue);
 	color: var(--white);
 	cursor: pointer;
@@ -385,4 +400,9 @@ input[type='number']::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+
+.form-step h2 {
+	font-weight: bold;
 }
