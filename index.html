@@ -5,71 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
     <script defer src="main.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container right-panel-active">
+    <div class="container">
         <!-- Sign Up -->
         <div class="container__form container--signup">
             <form action="#" class="form" id="form1">
-                <h1>Faça parte do Soluções Industriais</h1>
+                <h1 class="fixed__title">Faça parte do Soluções Industriais</h1>
                 <h2 class="form__title">Crie sua conta</h2>
                 <div class="signUpType">
                     <input type="radio" name="userType" id="useyType1" value="Comprador">Comprador
                     <input type="radio" name="userType" id="useyType2" value="Fornecedor">Fornecedor
                     <input type="radio" name="userType" id="useyType3" value="Ambos">Ambos<br>
                 </div>
-                <input type="text" placeholder="Nome" class="input" required/>
-                <input type="tel" placeholder="Telefone" class="input" maxlength="15" required/>
-                <input type="email" placeholder="E-mail" class="input" required/>
-                <input id="hidden" type="hidden" class="input"/>
+                <input type="text" placeholder="Nome" class="input" required />
+                <input type="tel" placeholder="Telefone" class="input" maxlength="15" required />
+                <input type="email" placeholder="E-mail" class="input" required />
+                <input id="hidden" type="hidden" class="input" maxlength="18" />
+                <p class="signIn__mob">Já possui uma conta? Clique <a href="#" id="signInMob">aqui</a></p>
                 <button class="btn">Cadastrar-se</button>
             </form>
 
 
-    <!--! __________________________ segundo passo do cadastro _______________________________ !-->
+            <!--! __________________________ segundo passo do cadastro _______________________________ !-->
 
             <div class="form-step" id="form-step-2" style="display:none;">
                 <form action="#" class="form">
                     <h2 class="form__title">Preencha os dados da sua Empresa</h2>
-                    <input type="text" placeholder="Nome Fantasia" class="input" />
-                    <label>First Select</label>
-                    <select name="First Select" id="segmento">
-                        <option value="" selected>Selecione</option>
-                        <option value="Value 1">Value 1</option>
-                        <option value="Value 2">Value 2</option>
-                    </select>
-                    <label>Second Select</label>
-                    <select name="Second Select" id="segType">
-                        <option value="" selected>Selecione</option>
-                        <option value="Value 1">Value 1</option>
-                        <option value="Value 2">Value 2</option>
-                    </select>
+                    <div class="selects">
+                        <input type="text" placeholder="Nome Fantasia" class="input" />
+                        <label>Segmento Primário</label>
+                        <select name="segmento primário" id="segmento">
+                            <option value="" selected>Selecione</option>
+                            <option value="Value 1">Value 1</option>
+                            <option value="Value 2">Value 2</option>
+                        </select>
+                        <label id="secondSeg">Segmento Secundário</label>
+                        <select name="segmento secundário" id="segType">
+                            <option value="" selected>Selecione</option>
+                            <option value="Value 1">Value 1</option>
+                            <option value="Value 2">Value 2</option>
+                        </select>
+                        <label id="thridSeg">Segmento Terceiário</label>
+                        <select name="Segmento Terceiário" id="terType">
+                            <option value="" selected>Selecione</option>
+                            <option value="Value 1">Value 1</option>
+                            <option value="Value 2">Value 2</option>
+                        </select>
+
+                        <label id="typeLabel">Tipo de Empresa</label>
+                        <select name="Tipo de Empresa" id="TypeCompany">
+                            <option value="" selected>Selecione</option>
+                            <option value="Value 1">Value 1</option>
+                            <option value="Value 2">Value 2</option>
+                        </select>
+                    </div>
                     <div class="buttonsForm">
                         <button type="button" class="btn btn-back">Voltar</button>
-                        <button type="submit" class="btn btn-next">Continuar</button>
+                        <button type="button" class="btn btn-next">Continuar</button>
                     </div>
                 </form>
             </div>
 
-    <!--! _________________________ terceiro passo do cadastro _____________________________ !-->
+            <!--! _________________________ terceiro passo do cadastro _____________________________ !-->
 
             <div class="form-step" id="form-step-3" style="display:none;">
                 <form action="#" class="form">
                     <h2 class="form__title">Preencha seus dados de Contato</h2>
-                    <div class="form-content">
+                    <!-- <div class="form-content"> -->
                         <input type="url" placeholder="Site da Empresa" class="input" />
-                        <div id="phone-number-fields">
-                            <div class="phone-input-group">
-                                <input type="tel" placeholder="Telefones de Contato" class="input phone-input" />
-                                <button type="button" class="add-phone-btn">+</button>
-                            </div>
-                        </div>
                         <input type="email" placeholder="E-mail para receber contação" class="input" />
-                        <input type="text" placeholder="Estados que deseja atender" class="input" />
-                    </div>
+                        <select id="state-select" multiple name="state[]" placeholder="Estados que deseja atender"
+                            class="input demo-default">
+                            <option value="">Escolha um estado...</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    <!-- </div> -->
                     <div class="buttonsForm">
                         <button type="button" class="btn btn-back">Voltar</button>
                         <button type="submit" class="btn btn-next">Criar Cadastro</button>
@@ -86,11 +129,13 @@
         <!-- Sign In -->
         <div class="container__form container--signin">
             <form action="#" class="form" id="form2">
-                <h2 class="form__title">Login</h2>
+                <h2 class="form__title__login">Login</h2>
                 <input type="email" placeholder="Email" class="input" />
                 <input type="password" placeholder="Password" class="input" />
-                <a href="#" class="link">Esqueceu a Senha?</a>
+                <a href="#" class="link" title="Esqueceu a Senha?">Esqueceu a Senha?</a>
                 <button class="btn">Entrar</button>
+                <p class="signUp__mob">Ainda não possui uma conta? Clique <a href="#" id="signUpMob">aqui</a> para se
+                    cadastrar</p>
             </form>
         </div>
 

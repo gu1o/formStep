@@ -1,12 +1,12 @@
 * {
 	box-sizing: border-box;
-  }
-  
+}
+
 
 :root {
 	/* COLORS */
 	--white: #e9e9e9;
-	--gray: #333;
+	--blueLink: #122ac2;
 	--blue: #100CE0;
 	--lightblue: #008997;
 
@@ -45,9 +45,14 @@ body::before {
 	left: 0;
 	background: linear-gradient(180deg, rgb(9 42 127 / 87%) -21.89%, rgba(13, 56, 116, 0.52) 100%);
 	height: 150vh;
-  }
+}
 
-h1 {
+a {
+	color: var(--blueLink);
+	text-decoration: none;
+}
+
+.fixed__title {
 	font-size: 1.55em;
 	text-align: center;
 }
@@ -59,10 +64,11 @@ h1 {
 }
 
 .link {
-	color: var(--gray);
+	color: var(--blueLink);
 	font-size: 0.9rem;
-	margin: 1.5rem 0;
+	margin: 1rem 0;
 	text-decoration: none;
+	text-align: left;
 }
 
 .container {
@@ -90,7 +96,7 @@ h1 {
 	z-index: 2;
 }
 
-.container.right-panel-active .container--signin {
+.container.right-painel-active .container--signin {
 	transform: translateX(100%);
 }
 
@@ -101,7 +107,7 @@ h1 {
 	z-index: 1;
 }
 
-.container.right-panel-active .container--signup {
+.container.right-painel-active .container--signup {
 	animation: show 0.6s;
 	opacity: 1;
 	transform: translateX(100%);
@@ -118,16 +124,16 @@ h1 {
 	top: 0;
 }
 
-.container.right-panel-active .container--signin {
+.container.right-painel-active .container--signin {
 	display: none;
 }
 
-.container.right-panel-active .container--signup {
+.container.right-painel-active .container--signup {
 	width: 50%;
 	transform: translateX(100%);
 }
 
-.container.right-panel-active .form-step {
+.container.right-painel-active .form-step {
 	display: block;
 	opacity: 1;
 	position: absolute;
@@ -159,7 +165,7 @@ h1 {
 	z-index: 100;
 }
 
-.container.right-panel-active .container__overlay {
+.container.right-painel-active .container__overlay {
 	transform: translateX(-100%);
 }
 
@@ -178,7 +184,7 @@ h1 {
 	width: 200%;
 }
 
-.container.right-panel-active .overlay {
+.container.right-painel-active .overlay {
 	transform: translateX(50%);
 }
 
@@ -200,7 +206,7 @@ h1 {
 	transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay--left {
+.container.right-painel-active .overlay--left {
 	transform: translateX(0);
 }
 
@@ -209,7 +215,7 @@ h1 {
 	transform: translateX(0);
 }
 
-.container.right-panel-active .overlay--right {
+.container.right-painel-active .overlay--right {
 	transform: translateX(20%);
 }
 
@@ -227,7 +233,7 @@ h1 {
 	transition: transform 80ms ease-in;
 }
 
-.buttonsForm{
+.buttonsForm {
 	display: flex;
 	width: 100%;
 	gap: 10px;
@@ -251,7 +257,6 @@ h1 {
 .form {
 	background-color: var(--white);
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 3rem;
@@ -283,15 +288,20 @@ h1 {
 	}
 }
 
+.signIn__mob,
+.signUp__mob {
+	display: none;
+}
+
 
 .form-step select {
 	width: 100%;
-	padding: 10px;
-	font-size: 0.9rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-bottom: 15px;
-	box-sizing: border-box;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    box-sizing: border-box;;
 }
 
 
@@ -299,7 +309,7 @@ h1 {
 	font-size: 0.9rem;
 	color: #333;
 	margin-top: 10px;
-	margin-bottom: 5px;
+    margin-bottom: 10px;
 	display: block;
 	width: 275px;
 	text-align: left;
@@ -315,94 +325,184 @@ h1 {
 	background-position: calc(100% - 10px) center;
 }
 
-
-.form-step input[type="file"] {
-	cursor: pointer;
-	background-color: #f8f8f8;
-	border: 1px solid #ccc;
-	width: 315px;
+#segType,
+#secondSeg,
+#thridSeg,
+#terType {
+	display: none;
 }
-
 
 .form-step select {
 	padding-right: 10px;
 }
 
-
-.phone-input-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    min-width: 312px;
-    width: 100%;
-}
-
-.input.phone-input {
-    border-radius: 4px;
-    padding: 0.9rem 0.9rem;
-}
-
-.add-phone-btn {
-    background-color: #ffffff;
-    border: 1px solid #e5e3e3;
-    border-radius: 4px;
-    padding: 0.5rem 0.8rem;
-    margin-left: 10px;
-    font-size: 1.3rem;
-    height: 45px;
-    line-height: 0;
-    cursor: pointer;
-    box-shadow: none;
-    outline: none;
-}
-
-
-.remove-phone-btn {
-	background-color: #ffffff;
-	border: 1px solid #e5e3e3;
-	border-radius: 4px;
-	padding: 0.5rem 0.8rem;
-	margin-left: 10px;
-	font-size: 2rem;
-	height: 44px;
-	line-height: 0;
-	cursor: pointer;
-	box-shadow: none;
-	outline: none;
-}
-
-.input.phone-input:focus,
-.add-phone-btn:focus {
-    border-color: blue;
-}
-
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input#state-select-selectized {
+    width: 100% !important;
+    padding-left: 10px !important;
+}
+
+input[type='select-multiple']::placeholder {
+	position: relative;
+    left: -5px;
 }
 
 .form-content {
-    overflow-x: hidden;
-    overflow-y: auto;  
-    max-height: 260px; 
-    padding: 5px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 260px;
+	padding: 5px;
+}
+
+.selects {
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 5px 0 5px;
+	max-height: 260px;
 }
 
 
 .form-step {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 
 .form-step h2 {
 	font-weight: bold;
+}
+
+.selectize-control.input.demo-default.multi {
+	box-sizing: content-box;
+    padding: 0;
+}
+
+.selectize-input.items.not-full.has-options {
+	border: none;
+    box-sizing: border-box;
+}
+
+.selectize-control .selectize-input {
+    height: 38px; /* Ajuste conforme a altura do seu input */
+    font-size: 14px; /* Ajuste conforme o tamanho da fonte dos seus inputs */
+    color: #333; /* Ajuste conforme a cor do texto dos seus inputs */
+    border: 1px solid #ccc; /* Ajuste se seus inputs tiverem borda */
+    border-radius: 4px; /* Ajuste se seus inputs tiverem bordas arredondadas */
+    padding: 8px 12px; /* Ajuste conforme o padding dos seus inputs */
+}
+
+.selectize-dropdown,
+.selectize-dropdown-content {
+    width: 100%; /* Isso ajuda a assegurar que o dropdown do select seja do mesmo tamanho que o selectize-input */
+}
+
+.selectize-input {
+    padding-left: 8px !important; /* Reduz o padding à esquerda conforme necessário */
+}
+
+.selectize-control.single .selectize-input.input-active {
+    /* Estilização adicional quando o input do selectize está ativo */
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+	.form__title__login {
+		font-size: 2em;
+	}
+	
+	.link {
+		color: var(--blueLink);
+		font-size: 0.9rem;
+		margin: 1.5rem 0;
+		text-decoration: none;
+	}
+}
+
+
+@media only screen and (max-width: 768px) {
+	.link {
+		color: var(--blueLink);
+		font-size: 0.9rem;
+		margin: 1.5rem 0;
+		text-decoration: none;
+	}
+
+}
+
+
+
+@media only screen and (max-width: 765px) {
+	.container.right-painel-active .container--signup {
+		width: 100%;
+		transform: unset;
+	}
+
+	.container.right-painel-active .container--signup {
+		animation: show 0.6s;
+		opacity: 1;
+		transform: unset;
+		z-index: 5;
+	}
+
+	.container__overlay {
+		display: none;
+	}
+
+	.container--signin {
+		width: 100%;
+	}
+
+	.fixed__title {
+		font-size: 1.3em;
+		text-align: center;
+	}
+
+	.form__title {
+		margin-bottom: 0.5rem;
+		font-size: 1.2em;
+	}
+
+	.form__title__login {
+		margin-bottom: 0.5rem;
+		font-size: 1.8em;
+	}
+
+	.form>.btn {
+		margin-top: 0.6rem;
+	}
+
+	.btn {
+		font-size: 0.76rem;
+	}
+
+	.signUpType {
+		margin: 10px;
+	}
+
+	.signIn__mob,
+	.signUp__mob {
+		display: block;
+		font-size: 1em;
+		margin-bottom: 5px;
+	}
+
+	.link {
+		color: var(--blueLink);
+		font-size: 0.9rem;
+		margin: 1rem 0 .1rem 0;
+		text-decoration: none;
+	}
 }

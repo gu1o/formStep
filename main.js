@@ -1,5 +1,7 @@
 const signInBtn = document.getElementById("signIn");
+const signInMob = document.getElementById("signInMob");
 const signUpBtn = document.getElementById("signUp");
+const signUpMob = document.getElementById("signUpMob");
 const firstForm = document.getElementById("form1");
 const secondForm = document.getElementById("form2");
 const container = document.querySelector(".container");
@@ -12,19 +14,38 @@ const hiddenInput = document.getElementById("hidden");
 const actionButton = firstForm.querySelector(".btn");
 const backButton = document.querySelector(".btn-back");
 const nextButton = document.querySelector(".btn-next");
-const addPhoneButton = document.querySelector(".add-phone-btn");
-const phoneNumberFields = document.getElementById("phone-number-fields");
 const finishButton = formStep3.querySelector(".btn-next"); //botão de concluir cadastro
 const backButtonStep3 = formStep3.querySelector(".btn-back"); // Botão de voltar no terceiro passo
 
 
+// chamada do selectize
+$(document).ready(function() {
+    $('#state-select').selectize({
+        create: true, // Permite a criação de novos itens
+        sortField: 'text'
+    });
+});
+
+
 // evento para alternar visibilidade dos painéis de sign in e sign up
 signInBtn.addEventListener("click", () => {
-    container.classList.remove("right-panel-active");
+    container.classList.remove("right-painel-active");
+});
+
+signInMob.addEventListener("click", () => {
+    container.classList.remove("right-painel-active")
 });
 
 signUpBtn.addEventListener("click", () => {
-    container.classList.add("right-panel-active");
+    container.classList.add("right-painel-active");
+});
+
+signUpBtn.addEventListener("click", () => {
+    container.classList.add("right-painel-active");
+});
+
+signUpMob.addEventListener("click", () => {
+    container.classList.add("right-painel-active");
 });
 
 // bloqueia o envio padrão do formulário no primeiro e segundo passos
@@ -100,8 +121,6 @@ function addCNPJMask() {
 });
 
 
-
-
 // lógica para avançar entre os passos do formulário
 actionButton.addEventListener("click", function(e) {
     e.preventDefault();
@@ -127,7 +146,7 @@ backButton.addEventListener("click", function() {
     actionButton.dataset.step = userType2.checked || userType3.checked ? "1" : "0";
 });
 
-// Evento para avançar do segundo passo (implementar lógica se necessário para o terceiro passo)
+// Evento para avançar do segundo passo
 nextButton.addEventListener("click", function() {
     formStep2.style.display = 'none';
     formStep3.style.display = 'block';
@@ -143,57 +162,44 @@ actionButton.addEventListener("click", function(e) {
     }
 });
 
-// lógica de remover input de telefone
-function updateRemoveButtons() {
-    // Seleciona todos os botões de remover
-    document.querySelectorAll(".remove-phone-btn").forEach(button => {
-        button.removeEventListener("click", removePhoneGroup);
-        button.addEventListener("click", removePhoneGroup);
+
+// função do selects
+document.addEventListener('DOMContentLoaded', function() {
+    const segmentoSelect = document.getElementById('segmento');
+    const segTypeSelect = document.getElementById('segType');
+    const terTypeSelect = document.getElementById('terType');
+    const secondSeg = document.getElementById('secondSeg');
+    const thridSeg = document.getElementById('thridSeg');
+    
+    // Quando uma opção é selecionada no primeiro select
+    segmentoSelect.addEventListener('change', function() {
+        if (this.value) {
+            segTypeSelect.style.display = 'block'; // Mostra o segundo 
+            secondSeg.style.display = 'block';
+        } else {
+            segTypeSelect.style.display = 'none'; // Esconde o segundo select
+            secondSeg.style.display = 'none';
+            terTypeSelect.style.display = 'none'; // Esconde o terceiro select
+        }
     });
-}
 
-// lógica para restaurar a div do input de telefone
-function removePhoneGroup(event) {
-    // O botão que foi clicado
-    const buttonClicked = event.target;
-    // O grupo de input do telefone a ser removido
-    const groupToRemove = buttonClicked.closest(".phone-input-group");
-    // Remove o grupo
-    groupToRemove.remove();
-}
-
-addPhoneButton.addEventListener("click", () => {
-    // Cria um novo grupo de input para o telefone
-    const newInputGroup = document.createElement("div");
-    newInputGroup.classList.add("phone-input-group");
-
-    // cria o input
-    const newPhoneInput = document.createElement("input");
-    newPhoneInput.setAttribute("type", "tel");
-    newPhoneInput.setAttribute("placeholder", "Telefones de Contato");
-    newPhoneInput.classList.add("input", "phone-input");
-
-    // cria o botão de remover
-    const newRemoveButton = document.createElement("button");
-    newRemoveButton.type = "button";
-    newRemoveButton.classList.add("remove-phone-btn");
-    newRemoveButton.textContent = "-";
-
-    // adiciona o novo input e o botão de remover ao novo grupo
-    newInputGroup.appendChild(newPhoneInput);
-    newInputGroup.appendChild(newRemoveButton);
-
-    // adiciona o novo grupo ao container dos telefones
-    phoneNumberFields.appendChild(newInputGroup);
-
-    updateRemoveButtons();
+    // Quando uma opção é selecionada no segundo select
+    segTypeSelect.addEventListener('change', function() {
+        if (this.value) {
+            terTypeSelect.style.display = 'block'; // Mostra o terceiro select
+            thridSeg.style.display = 'block';
+        } else {
+            terTypeSelect.style.display = 'none'; // Esconde o terceiro select
+        }
+    });
 });
 
-
+// botão next do segundo passo
 backButtonStep3.addEventListener("click", function() {
     formStep3.style.display = 'none';
     formStep2.style.display = 'block';
 });
+
 
 // botão para cadastrar
 finishButton.addEventListener("click", function(e) {
