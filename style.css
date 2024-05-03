@@ -296,12 +296,13 @@ a {
 
 .form-step select {
 	width: 100%;
-    padding: 10px;
-    font-size: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    box-sizing: border-box;;
+	padding: 10px;
+	font-size: 0.9rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	box-sizing: border-box;
+	;
 }
 
 
@@ -309,7 +310,7 @@ a {
 	font-size: 0.9rem;
 	color: #333;
 	margin-top: 10px;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 	display: block;
 	width: 275px;
 	text-align: left;
@@ -343,13 +344,14 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 input#state-select-selectized {
-    width: 100% !important;
-    padding-left: 10px !important;
+	width: 100% !important;
+	padding-left: 10px !important;
+	height: 25px;
 }
 
 input[type='select-multiple']::placeholder {
 	position: relative;
-    left: -5px;
+	left: -5px;
 }
 
 .form-content {
@@ -386,34 +388,32 @@ input[type='select-multiple']::placeholder {
 
 .selectize-control.input.demo-default.multi {
 	box-sizing: content-box;
-    padding: 0;
+	padding: 0;
 }
 
 .selectize-input.items.not-full.has-options {
 	border: none;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .selectize-control .selectize-input {
-    height: 38px; /* Ajuste conforme a altura do seu input */
-    font-size: 14px; /* Ajuste conforme o tamanho da fonte dos seus inputs */
-    color: #333; /* Ajuste conforme a cor do texto dos seus inputs */
-    border: 1px solid #ccc; /* Ajuste se seus inputs tiverem borda */
-    border-radius: 4px; /* Ajuste se seus inputs tiverem bordas arredondadas */
-    padding: 8px 12px; /* Ajuste conforme o padding dos seus inputs */
+	height: auto;
+	font-size: 14px;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 8px 12px;
 }
 
 .selectize-dropdown,
 .selectize-dropdown-content {
-    width: 100%; /* Isso ajuda a assegurar que o dropdown do select seja do mesmo tamanho que o selectize-input */
+	width: 100%;
+	/* Isso ajuda a assegurar que o dropdown do select seja do mesmo tamanho que o selectize-input */
 }
 
 .selectize-input {
-    padding-left: 8px !important; /* Reduz o padding à esquerda conforme necessário */
-}
-
-.selectize-control.single .selectize-input.input-active {
-    /* Estilização adicional quando o input do selectize está ativo */
+	padding-left: 8px !important;
+	/* Reduz o padding à esquerda conforme necessário */
 }
 
 
@@ -422,7 +422,7 @@ input[type='select-multiple']::placeholder {
 	.form__title__login {
 		font-size: 2em;
 	}
-	
+
 	.link {
 		color: var(--blueLink);
 		font-size: 0.9rem;
@@ -438,6 +438,11 @@ input[type='select-multiple']::placeholder {
 		font-size: 0.9rem;
 		margin: 1.5rem 0;
 		text-decoration: none;
+	}
+
+	.signUpType {
+		width: 80%;
+		margin: 0 auto;
 	}
 
 }
@@ -508,4 +513,37 @@ input[type='select-multiple']::placeholder {
 		margin: 1rem 0 .1rem 0;
 		text-decoration: none;
 	}
+}
+
+
+@media only screen and (max-width: 415px) {
+	.signUpType {
+		margin: 10px -5px;
+		width: 100%;
+	}
+}
+
+
+@media only screen and (max-width: 390px) {
+	.signUpType {
+		margin: 10px -6px 10px;
+		width: 283px;
+	}
+
+}
+
+@media only screen and (max-width: 375px) {
+	.signUpType {
+		margin: 10px auto;
+		width: 80%;
+	}
+
+}
+
+@media only screen and (max-width: 360px) {
+	.signUpType {
+		margin: 10px auto;
+		width: 90%;
+	}
+
 }
