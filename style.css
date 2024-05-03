@@ -445,6 +445,10 @@ input[type='select-multiple']::placeholder {
 
 
 @media only screen and (max-width: 765px) {
+	body {
+		height: 95vh;
+	}
+
 	.container.right-painel-active .container--signup {
 		width: 100%;
 		transform: unset;
@@ -476,8 +480,7 @@ input[type='select-multiple']::placeholder {
 	}
 
 	.form__title__login {
-		margin-bottom: 0.5rem;
-		font-size: 1.8em;
+		font-size: 2em;
 	}
 
 	.form>.btn {
