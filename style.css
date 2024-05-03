@@ -346,7 +346,7 @@ input[type='number']::-webkit-outer-spin-button {
 input#state-select-selectized {
 	width: 100% !important;
 	padding-left: 10px !important;
-	height: 25px;
+	height: auto;
 }
 
 input[type='select-multiple']::placeholder {
@@ -394,6 +394,9 @@ input[type='select-multiple']::placeholder {
 .selectize-input.items.not-full.has-options {
 	border: none;
 	box-sizing: border-box;
+	background: url(arrow-down-icon.png) no-repeat right !important;
+    background-size: 25px !important;
+    background-position: calc(100% - 10px) center !important;
 }
 
 .selectize-control .selectize-input {
@@ -408,12 +411,10 @@ input[type='select-multiple']::placeholder {
 .selectize-dropdown,
 .selectize-dropdown-content {
 	width: 100%;
-	/* Isso ajuda a assegurar que o dropdown do select seja do mesmo tamanho que o selectize-input */
 }
 
 .selectize-input {
 	padding-left: 8px !important;
-	/* Reduz o padding à esquerda conforme necessário */
 }
 
 
